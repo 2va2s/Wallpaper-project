@@ -5,13 +5,18 @@ import axios from 'axios'
 
 
 function App() {
+  console.log(window.location.href)
   const CLIENT_ID = "b4d1e91f967e42feab5fdbf5f458b0ec"
-  const REDIRECT_URI = "http://localhost:3000"
+  const REDIRECT_URI = window.location.href.includes("localhost") ? "http://localhost:3000" : "https://cute-bushes-open-46-193-64-63.loca.lt"
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
   const RESPONSE_TYPE = "token"
 
   const [token, setToken] = useState("")
   const [topTracks, setTopTracks] = useState("")
+
+  const deviceWidth = window.screen.width
+  const deviceHeight = window.screen.height
+  const imageDim = deviceWidth / 4
 
   useEffect(() => {
     const hash = window.location.hash
@@ -44,7 +49,7 @@ function App() {
 
   const fetchTopTracks = async () => {
     console.log({ token })
-    const { data } = await axios.get("https://api.spotify.com/v1/me/top/tracks/?limit=2", {
+    const { data } = await axios.get("https://api.spotify.com/v1/me/top/tracks/?limit=40", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -64,8 +69,19 @@ function App() {
   }
 
   const buildWallpaper = () => {
-    var c = document.getElementById("1");
-    console.log(c)
+    var c = document.getElementById("canvaBox");
+    console.log(c.src)
+    var ctx = c.getContext("2d")
+    console.log("topt" + topTracks)
+    for (let i in topTracks) {
+      console.log("passing",i)
+      let img = document.getElementById(i)
+      console.log(img)
+      // ctx.drawImage(img, i * deviceWidth, i * ((deviceHeight / 4)-1), imageDim, imageDim)
+      ctx.drawImage(document.getElementById(i), imageDim*(i%4), (Math.floor(i/4))*imageDim, imageDim, imageDim)
+    }
+    // ctx.drawImage(document.getElementById("0"), 0, 0, imageDim, imageDim)
+    document.getElementById("deviceWidth").innerText = deviceWidth + " " + deviceHeight
   }
 
 
@@ -80,15 +96,22 @@ function App() {
 
         {token ?
 
-          <div id="11">
+          <div>
             <p>rempli ca pd</p>
             <button onClick={fetchTopTracks}>vide</button>
             <button onClick={buildWallpaper}>Build Wallpaper</button>
           </div>
           :
-          <h2>Please login</h2>
+          <div>
+            <h2>Please login</h2>
+            <p>{window.location.href}</p>
+          </div>
         }
-        {renderTopTracks()}
+        <div id="coverImg">
+          {renderTopTracks()}
+        </div>
+        <p id="deviceWidth"></p>
+        <canvas id="canvaBox" height={deviceHeight} width={deviceWidth}></canvas>
       </header>
     </div>
   );
