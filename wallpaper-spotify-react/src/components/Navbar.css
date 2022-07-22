@@ -1,0 +1,14 @@
+#NavbarWrap {
+    background-color: rgb(31, 31, 31);
+    width: 100%;
+    height: 8%;
+    display:flex
+}
+
+#logo {
+    background-color: blue;
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    align-self: center;
+    margin-left: 10px
+}

@@ -1,9 +1,9 @@
 const config = {
 	backendUrl:
 		process.env.NODE_ENV === 'development'
-			? 'http://localhost:9000/.netlify/functions/app'
-			: 'https://spotify-stats-server.netlify.com/.netlify/functions/app',
-	repoUrl: 'https://github.com/sorxrob/spotify-stats',
+			? 'à remplir  avec localhost destination'
+			: 'à remplir avec lien du site hebergé',
+	repoUrl: 'https://github.com/2va2s/Wallpaper-project',
 };
 
 export default config;

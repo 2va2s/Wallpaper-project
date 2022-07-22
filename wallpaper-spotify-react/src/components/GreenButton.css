@@ -1,0 +1,14 @@
+.green-button {
+    width: 80%;
+    background-color: #1ED760;
+    height: 40px;
+    width: 80vw;
+    margin-top: 10px;
+}
+
+.text-choice {
+    margin-block-start: 0em;
+    text-align: center;
+    font-weight: 480;
+    font-size: 1.4em;
+}
