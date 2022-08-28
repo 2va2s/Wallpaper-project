@@ -1,0 +1,17 @@
+#settings-card {
+    height: 18vh;
+    width: 85vw;
+    background-color: blue
+}
+
+#settings-title {
+    width: 100%;
+    background-color: red;
+    height: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-margin {
+    margin:0
+}

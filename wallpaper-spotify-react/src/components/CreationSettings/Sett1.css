@@ -1,0 +1,18 @@
+.input-dim {
+    width: 4em;
+    margin-left: 2%;
+    margin-right: 2%
+}
+
+#dim-line {
+    display: flex;
+    justify-content: space-around
+}
+
+#inputs-dim {
+    display: flex;
+}
+
+#is-automatic {
+    display: flex;
+}

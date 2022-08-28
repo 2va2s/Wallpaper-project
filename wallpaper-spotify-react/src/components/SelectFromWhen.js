@@ -14,9 +14,9 @@ export default function SelectFromWhen() {
     <div id="step-container" >
       <h1>Créer un fond d’écran à partir de:</h1>
       <div id="choice-container">
-        <Button url="/creation" title="Du Mois" data={setFromWhen('Month')} />
-        <Button url="/creation" title="Des 6 Derniers mois" data={setFromWhen('HalfYear')} />
-        <Button url="/creation" title="All Time" data={setFromWhen('AllTime')} />
+        <Button url="/creation" title="Du Mois" data={setFromWhen('short_term')} />
+        <Button url="/creation" title="Des 6 Derniers mois" data={setFromWhen('medium_term')} />
+        <Button url="/creation" title="All Time" data={setFromWhen('long_term')} />
       </div>
     </div>
   )
